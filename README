@@ -2,7 +2,8 @@ This is a simple timer that sleeps for the amount of time specified by
 its input.
 
 Input should be any number -- floating-point or integers -- and,
-unless specified by a suffix, this will be interpreted as seconds.
+unless specified by a suffix, this will be interpreted as
+milliseconds.
 
 The main reason for basically re-writing this simple piece of software
 is that the software that exists has seconds as its minimum
