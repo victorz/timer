@@ -9,3 +9,6 @@ The main reason for basically re-writing this simple piece of software
 is that the software that exists has seconds as its minimum
 granularity. I wanted at least milliseconds.
 
+The intent is to later port the entire code to C, so it can be run a
+little more efficiently in scripts and so on, without having to start
+up the JVM (Java Virtual Machine) over and over.
