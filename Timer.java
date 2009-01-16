@@ -5,7 +5,7 @@ public class Timer {
 
         double time = digits;
 
-        if (suffix == null) {
+        if (suffix == null || suffix.isEmpty()) {
             throw new UnknownSuffixException();
         } else if (suffix.equals("ms")) {
             /* Don't alter the digits, this the is default suffix.*/
@@ -68,21 +68,31 @@ public class Timer {
     }
 
     public static void main(String args[]) {
+
+        double totalTime;
+
         if (args.length < 1) {
             System.err.println("Too few arguments.");
         } else {
+
+            totalTime = 0;
             for (int i = 0; i < args.length; i++) {
-                String suffix = extractSuffix(args[0]);
-                double time = extractTime(args[0]);
                 try {
-                    Thread.sleep(determineTime(time, suffix));
+                    String suffix = extractSuffix(args[i]);
+                    double time = extractTime(args[i]);
+                    totalTime += determineTime(time, suffix);
                 } catch (UnknownSuffixException use) {
                     System.err.println(use.getMessage());
                 } catch (NumberFormatException nfe) {
-                    System.err.println("Could not determine time of "
-                                       + args[i]);
-                } catch (InterruptedException ie) {
+                    System.err.println("Could not determine time of \""
+                                       + args[i] + "\"");
                 }
+            }
+
+            try {
+                Thread.sleep((int) totalTime);
+            } catch (InterruptedException ie) {
+                return;
             }
         }
     }
