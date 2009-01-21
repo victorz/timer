@@ -104,7 +104,7 @@ public class Timer {
                && (Character.isDigit(inputArray[i])
                    || inputArray[i] == '.')) {}
 
-        return input.substring(i, input.length());
+        return input.substring(i, input.length()).trim();
     }
 
     /**
@@ -130,7 +130,7 @@ public class Timer {
                && (Character.isDigit(inputArray[i])
                    || inputArray[i] == '.')) {}
 
-        return Double.parseDouble(input.substring(0, i));
+        return Double.parseDouble(input.substring(0, i).trim());
     }
 
     public static void main(String args[]) {
