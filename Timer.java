@@ -38,9 +38,12 @@ public class Timer {
         double time = digits;
 
         if (suffix == null || suffix.isEmpty()) {
-            throw new UnknownSuffixException();
+            /* Don't alter the digits, this the is default
+             * suffix. This is to support providing null or the empty
+             * string as the suffix parameter and this sleeping for
+             * the provided time interval in milliseconds. */
         } else if (suffix.equals("ms")) {
-            /* Don't alter the digits, this the is default suffix.*/
+            /* Don't alter the digits, this the is default suffix. */
         } else if (suffix.equals("s")) {
             time *= 1000;
         } else if (suffix.equals("m")) {
