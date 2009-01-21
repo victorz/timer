@@ -22,6 +22,31 @@
 public class Timer {
 
     /**
+     * The UnknownSuffixException is thrown when a suffix is cannot be
+     * found from a String.
+     */
+    private static class UnknownSuffixException extends Exception {
+
+        /**
+         * Creates a new UnknownSuffixException with the message
+         * "Unknown suffix.".
+         */
+        public UnknownSuffixException() {
+            super("Unknown suffix.");
+        }
+
+        /**
+         * Creates a new UnknownSuffixException with the message
+         * "Unknown suffix: " followed by the provided suffix.
+         *
+         * @param suffix the suffix that caused the exception.
+         */
+        public UnknownSuffixException(String suffix) {
+            super("Unknown suffix: " + suffix);
+        }
+    }
+
+    /**
      * Determines the amount of time based on a number and a suffix.
      * <p>
      * The suffix can currently be any of "", "ms", "s", "m", "h" and
@@ -106,31 +131,6 @@ public class Timer {
                    || inputArray[i] == '.')) {}
 
         return Double.parseDouble(input.substring(0, i));
-    }
-
-    /**
-     * The UnknownSuffixException is thrown when a suffix is cannot be
-     * found from a String.
-     */
-    private static class UnknownSuffixException extends Exception {
-
-        /**
-         * Creates a new UnknownSuffixException with the message
-         * "Unknown suffix.".
-         */
-        public UnknownSuffixException() {
-            super("Unknown suffix.");
-        }
-
-        /**
-         * Creates a new UnknownSuffixException with the message
-         * "Unknown suffix: " followed by the provided suffix.
-         *
-         * @param suffix the suffix that caused the exception.
-         */
-        public UnknownSuffixException(String suffix) {
-            super("Unknown suffix: " + suffix);
-        }
     }
 
     public static void main(String args[]) {
